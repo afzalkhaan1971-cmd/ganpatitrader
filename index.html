@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Ganpati Traders | Wholesale Trading & Distribution</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-burgundy: #6a1b2a;
+            --deep-gold: #c9a03d;
+            --warm-cream: #fdf8ed;
+            --charcoal: #2c2c2c;
+            --soft-brown: #8b5e3c;
+            --glow-gold: #e6b422;
+            --emerald: #2d6a4f;
+            --light-cream: #fef9e6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: var(--charcoal);
+            overflow-x: hidden;
+            background: var(--warm-cream);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== HEADER (DESKTOP) ========== */
+        .desktop-header {
+            background: rgba(255,255,245,0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 2px solid var(--deep-gold);
+            padding: 14px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-area i {
+            font-size: 2.2rem;
+            color: var(--primary-burgundy);
+        }
+
+        .logo-text h1 {
+            font-size: 1.6rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-burgundy);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text p {
+            font-size: 0.7rem;
+            color: var(--soft-brown);
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .nav-menu ul {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--charcoal);
+            transition: 0.2s;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-burgundy);
+            border-bottom: 2px solid var(--deep-gold);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: var(--primary-burgundy);
+            cursor: pointer;
+        }
+
+        /* ========== MOBILE FIRST — UNIQUE LUXURY-TRADER STYLE ========== */
+        .mobile-hero {
+            display: none;
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(145deg, #2e1b1b 0%, #4a2c2c 100%);
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* animated gold foil pattern */
+        .mobile-hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(ellipse at 30% 40%, rgba(201,160,61,0.12) 0%, transparent 60%);
+            animation: slowShift 18s infinite alternate;
+        }
+
+        @keyframes slowShift {
+            0% { transform: translate(0,0); opacity: 0.5; }
+            100% { transform: translate(5%, 5%); opacity: 1; }
+        }
+
+        /* ornate rotating border */
+        .ornate-ring {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border: 1px solid rgba(201,160,61,0.25);
+            border-radius: 50%;
+            top: 15%;
+            right: -80px;
+            animation: spinSlow 22s linear infinite;
+        }
+
+        .ornate-ring2 {
+            width: 380px;
+            height: 380px;
+            bottom: 5%;
+            left: -120px;
+            top: auto;
+            border-width: 2px;
+            animation: spinReverse 26s linear infinite;
+        }
+
+        @keyframes spinSlow {
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes spinReverse {
+            100% { transform: rotate(-360deg); }
+        }
+
+        /* premium floating goods animation */
+        .floating-goods {
+            position: absolute;
+            bottom: 8%;
+            left: -15%;
+            font-size: 3.5rem;
+            color: rgba(201,160,61,0.12);
+            animation: driftGoods 14s linear infinite;
+        }
+
+        @keyframes driftGoods {
+            0% { left: -15%; transform: translateY(0);}
+            50% { transform: translateY(-20px);}
+            100% { left: 110%; transform: translateY(0);}
+        }
+
+        .mobile-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 20px;
+            perspective: 1200px;
+        }
+
+        .center-logo-img {
+            max-width: 78%;
+            width: auto;
+            max-height: 42vh;
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px rgba(201,160,61,0.5));
+            animation: emblemFloat 3.8s ease-in-out infinite;
+        }
+
+        @keyframes emblemFloat {
+            0%,100% { transform: translateY(0) scale(1) rotateY(0deg);}
+            50% { transform: translateY(-14px) scale(1.02) rotateY(6deg);}
+        }
+
+        /* TRADER GOLD BUTTON (completely new style) */
+        .trader-wa-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: linear-gradient(105deg, #b8860b, #daa520, #f5d742);
+            background-size: 200% 200%;
+            color: #1e1a0c;
+            padding: 16px 42px;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 1.25rem;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 1px;
+            text-decoration: none;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4), 0 0 0 2px rgba(255,215,0,0.4);
+            transition: 0.3s;
+            border: none;
+            animation: goldGlow 2.2s infinite alternate, gradientShift 3s infinite;
+        }
+
+        @keyframes goldGlow {
+            0% { box-shadow: 0 5px 15px rgba(0,0,0,0.3), 0 0 0 2px rgba(218,165,32,0.5); transform: scale(1);}
+            100% { box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 0 5px rgba(218,165,32,0.8); transform: scale(1.02);}
+        }
+
+        @keyframes gradientShift {
+            0%,100% { background-position: 0% 50%;}
+            50% { background-position: 100% 50%;}
+        }
+
+        .trader-wa-btn i {
+            font-size: 1.9rem;
+            animation: slightSway 1.2s infinite alternate;
+        }
+
+        @keyframes slightSway {
+            0% { transform: rotate(-5deg);}
+            100% { transform: rotate(5deg);}
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--deep-gold);
+            font-weight: 500;
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            animation: subtleBounce 2s infinite;
+        }
+
+        @keyframes subtleBounce {
+            0%,100% { opacity: 0.6; transform: translateX(-50%) translateY(0);}
+            50% { opacity: 1; transform: translateX(-50%) translateY(-6px);}
+        }
+
+        /* ========== DESKTOP SECTIONS (Premium Wholesale Look) ========== */
+        .hero-desktop {
+            background: linear-gradient(rgba(106,27,42,0.92), rgba(106,27,42,0.96)), url('https://images.unsplash.com/photo-1556742049-0cfed2f5b5b7?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center 30%;
+            color: white;
+            padding: 110px 0 90px;
+            text-align: center;
+        }
+
+        .hero-desktop h2 {
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .hero-desktop p {
+            font-size: 1.2rem;
+            max-width: 750px;
+            margin: 0 auto 28px;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--deep-gold);
+            color: #2c1a12;
+            padding: 12px 34px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.25s;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            border-color: var(--deep-gold);
+            color: var(--deep-gold);
+        }
+
+        .section-pad {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-burgundy);
+            margin-bottom: 48px;
+            letter-spacing: -0.3px;
+        }
+
+        .about-wrapper {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2);
+        }
+
+        .about-img img {
+            width: 100%;
+            display: block;
+            transition: 0.4s;
+        }
+
+        .about-img img:hover { transform: scale(1.02);}
+
+        .about-text {
+            flex: 1;
+        }
+
+        /* category grid */
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 30px;
+        }
+
+        .cat-card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+            transition: 0.25s;
+            border: 1px solid rgba(201,160,61,0.3);
+        }
+
+        .cat-card:hover { transform: translateY(-8px); border-color: var(--deep-gold);}
+
+        .cat-icon {
+            font-size: 3rem;
+            color: var(--primary-burgundy);
+            margin-bottom: 16px;
+        }
+
+        /* wholesale section */
+        .wholesale-banner {
+            background: var(--primary-burgundy);
+            color: white;
+            border-radius: 32px;
+            padding: 48px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 32px;
+        }
+
+        /* footer */
+        footer {
+            background: var(--charcoal);
+            color: #ddd;
+            padding: 50px 0 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--deep-gold);
+            margin-bottom: 18px;
+            font-size: 1.2rem;
+        }
+
+        .socials a {
+            display: inline-flex;
+            background: rgba(255,255,245,0.1);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: white;
+            transition: 0.2s;
+        }
+        .socials a:hover { background: var(--deep-gold); color: #2c2c2c;}
+
+        /* desktop WA */
+        .desktop-wa {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background: #25D366;
+            padding: 10px 22px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            z-index: 99;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 780px) {
+            .desktop-header { display: none; }
+            .mobile-hero { display: flex; }
+            .hero-desktop { display: none; }
+            .section-pad { padding: 56px 0; }
+            .about-wrapper { flex-direction: column; }
+            .section-title { font-size: 1.9rem; }
+            .wholesale-banner { flex-direction: column; text-align: center; }
+            .desktop-wa { display: none; }
+            .center-logo-img { max-width: 80%; max-height: 38vh; }
+            .trader-wa-btn { padding: 14px 34px; font-size: 1.1rem; }
+        }
+
+        @media (max-width: 500px) {
+            .center-logo-img { max-width: 88%; }
+            .trader-wa-btn { padding: 12px 28px; gap: 8px; font-size: 1rem; }
+            .ornate-ring { display: none; }
+        }
+
+        @media (min-width: 781px) {
+            .mobile-hero { display: none; }
+            .desktop-header { display: block; }
+            .hero-desktop { display: block; }
+            .desktop-wa { display: flex; }
+        }
+
+        .gold-text {
+            color: var(--deep-gold);
+        }
+
+        .btn-outline-gold {
+            background: transparent;
+            border: 1.5px solid var(--deep-gold);
+            color: var(--primary-burgundy);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+            display: inline-block;
+        }
+
+        .btn-outline-gold:hover {
+            background: var(--deep-gold);
+            color: #1e1a0c;
+        }
+    </style>
+</head>
+<body>
+
+<!-- *************************** DESKTOP HEADER ************************** -->
+<div class="desktop-header">
+    <div class="container header-flex">
+        <div class="logo-area">
+            <i class="fas fa-truck-ramp-box"></i>
+            <div class="logo-text">
+                <h1>GANPATI TRADERS</h1>
+                <p>EST. 1998 | WHOLESALE & DISTRIBUTION</p>
+            </div>
+        </div>
+        <div class="nav-menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#wholesale">Wholesale</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <button class="mobile-menu-toggle" id="mobileToggleBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+</div>
+
+<!-- *************************** MOBILE UNIQUE SECTION *************************** -->
+<div class="mobile-hero" id="mobileMainHero">
+    <!-- premium rotating decorative rings -->
+    <div class="ornate-ring"></div>
+    <div class="ornate-ring ornate-ring2"></div>
+    <div class="floating-goods"><i class="fas fa-cubes"></i></div>
+    
+    <div class="mobile-image-container">
+        <img src="md1.webp" alt="Ganpati Traders" class="center-logo-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2544/2544544.png';">
+    </div>
+    
+    <!-- completely different WhatsApp button style + new wa.link -->
+    <a href="https://wa.link/ready12" target="_blank" class="trader-wa-btn">
+        <i class="fab fa-whatsapp"></i> GET IT NOW
+    </a>
+    
+    <div class="scroll-hint">
+        <i class="fas fa-arrow-down"></i>
+        <span>discover collection</span>
+        <i class="fas fa-store"></i>
+    </div>
+</div>
+
+<!-- *************************** DESKTOP HERO *************************** -->
+<div class="hero-desktop" id="home">
+    <div class="container">
+        <h2>GANPATI TRADERS</h2>
+        <p>Trusted wholesale partner for retailers, businesses & institutions. Quality goods, transparent pricing, and pan-India delivery since 1998.</p>
+        <a href="#wholesale" class="btn-primary">Partner With Us →</a>
+    </div>
+</div>
+
+<!-- *************************** ABOUT SECTION *************************** -->
+<section class="section-pad" id="about">
+    <div class="container">
+        <h2 class="section-title">The Ganpati Legacy</h2>
+        <div class="about-wrapper">
+            <div class="about-img">
+                <img src="https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Warehouse & Distribution">
+            </div>
+            <div class="about-text">
+                <p>Founded in 1998, Ganpati Traders has grown into a premier wholesale distribution house. We specialize in general merchandise, textiles, home essentials, and electronics — catering to retailers and bulk buyers across India.</p>
+                <p>Our 60,000 sq. ft. warehouse and strong supply chain ensure consistent stock and on-time delivery. Every product is quality-checked, and we offer flexible credit terms for established partners.</p>
+                <p>We are driven by <strong class="gold-text">integrity, value, and long-term relationships</strong> — that's why thousands of retailers trust us as their preferred sourcing partner.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- *************************** CATEGORIES *************************** -->
+<section class="section-pad" style="background: var(--light-cream);" id="categories">
+    <div class="container">
+        <h2 class="section-title">Our Wholesale Categories</h2>
+        <div class="cat-grid">
+            <div class="cat-card">
+                <div class="cat-icon"><i class="fas fa-box-open"></i></div>
+                <h3>General Merchandise</h3>
+                <p>Daily utility items, plastic goods, storage & more — bulk rates for kirana & supermarket.</p>
+                <a href="https://wa.link/ready12" target="_blank" class="btn-outline-gold" style="margin-top:14px;">Inquiry →</a>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon"><i class="fas fa-tshirt"></i></div>
+                <h3>Textiles & Apparel</h3>
+                <p>Fabric rolls, readymade garments, home textiles — mill surplus & export stocks.</p>
+                <a href="https://wa.link/ready12" target="_blank" class="btn-outline-gold" style="margin-top:14px;">Inquiry →</a>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon"><i class="fas fa-microchip"></i></div>
+                <h3>Electronics & Gadgets</h3>
+                <p>Consumer electronics, mobile accessories, computer peripherals at wholesale pricing.</p>
+                <a href="https://wa.link/ready12" target="_blank" class="btn-outline-gold" style="margin-top:14px;">Inquiry →</a>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon"><i class="fas fa-kitchen-set"></i></div>
+                <h3>Home & Kitchenware</h3>
+                <p>Cookware, dining sets, storage containers — ideal for hotel & restaurant supply.</p>
+                <a href="https://wa.link/ready12" target="_blank" class="btn-outline-gold" style="margin-top:14px;">Inquiry →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- *************************** WHY CHOOSE (SERVICES) *************************** -->
+<section class="section-pad">
+    <div class="container">
+        <h2 class="section-title">Why Traders Choose Us</h2>
+        <div class="cat-grid">
+            <div class="cat-card"><i class="fas fa-rupee-sign cat-icon"></i><h3>Best Wholesale Rates</h3><p>Price advantage due to direct sourcing & bulk inventory.</p></div>
+            <div class="cat-card"><i class="fas fa-truck-fast cat-icon"></i><h3>Pan-India Delivery</h3><p>On-time logistics to metros & tier-2/3 cities.</p></div>
+            <div class="cat-card"><i class="fas fa-handshake cat-icon"></i><h3>Hassle-Free Returns</h3><p>Quality guarantee & easy replacement policy.</p></div>
+            <div class="cat-card"><i class="fas fa-file-invoice cat-icon"></i><h3>GST Billing</h3><p>Proper invoicing & documentation for business buyers.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- *************************** WHOLESALE PARTNERSHIP *************************** -->
+<section id="wholesale" class="section-pad" style="padding-top: 0;">
+    <div class="container">
+        <div class="wholesale-banner">
+            <div><h3 style="font-size: 1.8rem; font-family: 'Playfair Display';">Become a Trade Partner</h3>
+            <p style="margin-top: 8px;">Exclusive benefits, special pricing, and dedicated support for regular buyers.</p></div>
+            <a href="https://wa.link/ready12" target="_blank" class="btn-primary" style="background: var(--deep-gold); color:#2c1a12;">📦 Enquire for Bulk Order</a>
+        </div>
+    </div>
+</section>
+
+<!-- *************************** FOOTER *************************** -->
+<footer id="contact">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>GANPATI TRADERS</h4>
+                <p>Wholesale trading & distribution since 1998. Serving 5000+ retailers across India.</p>
+                <div class="socials" style="margin-top: 15px;">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul style="list-style: none;">
+                    <li><a href="#home" style="color:#ddd;">Home</a></li>
+                    <li><a href="#about" style="color:#ddd;">About</a></li>
+                    <li><a href="#categories" style="color:#ddd;">Categories</a></li>
+                    <li><a href="#wholesale" style="color:#ddd;">Wholesale</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 45, Kirti Nagar Industrial Area, New Delhi - 110015</p>
+                <p><i class="fas fa-phone-alt"></i> +91 98765 01234</p>
+                <p><i class="fas fa-envelope"></i> sales@ganpatitraders.co.in</p>
+                <p><i class="fab fa-whatsapp"></i> <strong>+91 97612 08436</strong> (Trade Enquiry)</p>
+            </div>
+        </div>
+        <div class="copyright" style="text-align:center; border-top: 1px solid rgba(255,255,200,0.1); padding-top: 30px; margin-top: 20px;">
+            <p>© 2025 Ganpati Traders — Premium Wholesale Partner. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- DESKTOP WHATSAPP BUTTON (new wa.link fortune247) -->
+<a href="https://wa.link/ready12" target="_blank" class="desktop-wa">
+    <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> <span>Wholesale Inquiry</span>
+</a>
+
+<script>
+    // Mobile header toggle (desktop small fallback)
+    const toggleBtn = document.getElementById('mobileToggleBtn');
+    const navMenu = document.querySelector('.desktop-header .nav-menu ul');
+    if(toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show-mobile');
+            toggleBtn.innerHTML = navMenu.classList.contains('show-mobile') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+    }
+
+    // smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                let offset = window.innerWidth <= 780 ? 20 : 80;
+                window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+                if (navMenu && navMenu.classList) navMenu.classList.remove('show-mobile');
+                if(toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+    });
+
+    // optional background sync for mobile body
+    const setMobileBg = () => {
+        if(window.innerWidth <= 780) {
+            document.body.style.background = '#2e1b1b';
+        } else {
+            document.body.style.background = 'var(--warm-cream)';
+        }
+    };
+    setMobileBg();
+    window.addEventListener('resize', setMobileBg);
+</script>
+</body>
+</html>
